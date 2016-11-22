@@ -5,6 +5,7 @@ A complete, yet simple, starter for Angular1.x using ES6 and build with webpack
 - Source maps included in all builds.
 - Development server with live reload.
 - built width webpack.
+
 > Warning: Make sure you're using the latest version of Node.js and NPM
 
 ## Quick start
@@ -21,7 +22,7 @@ A complete, yet simple, starter for Angular1.x using ES6 and build with webpack
 	# start the server
 	$ npm start
 
-go to http://localhost:8080 in your browser.
+go to http://localhost:4000 in your browser.
 
 ## Developing
 
