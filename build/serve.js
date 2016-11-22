@@ -24,7 +24,7 @@ gulp.task('serve', () => {
     serve({
         port: process.env.PORT || config.serverPort,
         open: false,
-        server: { baseDir: config.paths.doc },
+        server: { baseDir: config.paths.src },
         middleware: [
             webpackDevMiddleware(compiler, {
                 stats: {

@@ -9,7 +9,7 @@ webpackConfig.devtool = 'sourcemap';
 webpackConfig.output = {
     filename: 'scripts/[name].js',
     publicPath: '',
-    path: config.paths.site
+    path: config.paths.dist
 };
 
 webpackConfig.module.loaders = webpackConfig.module.loaders.concat([
