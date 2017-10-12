@@ -5,6 +5,8 @@ A complete, yet simple, starter for Angular1.x using ES6 and build with webpack
 - Source maps included in all builds.
 - Development server with live reload.
 - built width webpack.
+- IE8+ browser support.
+- ESLint rules.
 
 > Warning: Make sure you're using the latest version of Node.js and NPM
 
@@ -34,7 +36,7 @@ go to http://localhost:4000 in your browser.
 
 ## Relate
 
-[angular-webpack](https://github.com/preboot/angular-webpack.git)
+[angular-webpack](https://github.com/preboot/angularjs-webpack.git)
 
 
 ## License

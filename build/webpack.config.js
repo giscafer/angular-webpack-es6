@@ -11,43 +11,48 @@ const srcPath = config.paths.src;
 export default {
     entry: {},
     module: {
-        loaders: [{
-            test: /\.js$/,
-            exclude: [/node_modules/, path.resolve(__dirname, './src/pages/test')],
-            loader: 'babel',            
-            query: {
-                "presets": ["es2015", "stage-0"],
-                "plugins": [
-                    "transform-runtime",
-                    "transform-es3-property-literals",
-                    "transform-es3-member-expression-literals",
-                    "transform-es2015-classes",
-                    "transform-proto-to-assign"
-                ]
-            },
-            // loaders: ['ng-annotate', 'babel?presets[]=es2015,presets[]=stage-0,plugins[]=transform-es3-property-literals,plugins[]=transform-es3-member-expression-literals']
-            // loader: combineLoaders([
-            //     {
-            //         loader: 'ng-annotate!babel',
-            //         query: {
-            //             "presets": ["es2015", "stage-0"],
-            //             "plugins": [
-            //                 "transform-es3-property-literals",
-            //                 "transform-es3-member-expression-literals",
-            //                 "transform-es2015-classes",
-            //                 "transform-proto-to-assign"
-            //             ]
-            //         },
-            //     }
-            // ])
-        }, {
-            test: /\.html$/,
-            exclude: /index.html/,
-            loader: 'ngtemplate?relativeTo=' + srcPath + '/!html?attrs=false'
-        }, {
-            test: /\.(png|jpg|gif)$/,
-            loader: "url-loader?name=images/[name]_[hash:8].[ext]&limit=" + BASE64_LIMIT
-        }]
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'eslint-loader'
+            }, {
+                test: /\.js$/,
+                exclude: [/node_modules/, path.resolve(__dirname, './src/pages/test')],
+                loader: 'babel',
+                query: {
+                    "presets": ["es2015", "stage-0"],
+                    "plugins": [
+                        "transform-runtime",
+                        "transform-es3-property-literals",
+                        "transform-es3-member-expression-literals",
+                        "transform-es2015-classes",
+                        "transform-proto-to-assign"
+                    ]
+                },
+                // loaders: ['ng-annotate', 'babel?presets[]=es2015,presets[]=stage-0,plugins[]=transform-es3-property-literals,plugins[]=transform-es3-member-expression-literals']
+                // loader: combineLoaders([
+                //     {
+                //         loader: 'ng-annotate!babel',
+                //         query: {
+                //             "presets": ["es2015", "stage-0"],
+                //             "plugins": [
+                //                 "transform-es3-property-literals",
+                //                 "transform-es3-member-expression-literals",
+                //                 "transform-es2015-classes",
+                //                 "transform-proto-to-assign"
+                //             ]
+                //         },
+                //     }
+                // ])
+            }, {
+                test: /\.html$/,
+                exclude: /index.html/,
+                loader: 'ngtemplate?relativeTo=' + srcPath + '/!html?attrs=false'
+            }, {
+                test: /\.(png|jpg|gif)$/,
+                loader: "url-loader?name=images/[name]_[hash:8].[ext]&limit=" + BASE64_LIMIT
+            }]
     },
     resolveLoader: {
         noParse: []

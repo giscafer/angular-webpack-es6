@@ -13,6 +13,7 @@ angular.module('ng-app', ['ngRoute'])
         $window.$ = angular.element;
         $rootScope.title="angular-webpack-es6";
         $rootScope.$on('$routeChangeSuccess', function(event, next, current) {
-            console.log('route changed')
+            /*eslint-disable */
+            console.log('route changed');
         });
     }]);
