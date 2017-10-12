@@ -2,6 +2,8 @@ import webpack from 'webpack';
 import config from './config';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import combineLoaders from 'webpack-combine-loaders';
+var es3ifyPlugin = require('es3ify-webpack-plugin');
 
 const BASE64_LIMIT = 2048;
 const srcPath = config.paths.src;
@@ -12,7 +14,32 @@ export default {
         loaders: [{
             test: /\.js$/,
             exclude: [/node_modules/, path.resolve(__dirname, './src/pages/test')],
-            loader: 'ng-annotate!babel'
+            loader: 'babel',            
+            query: {
+                "presets": ["es2015", "stage-0"],
+                "plugins": [
+                    "transform-runtime",
+                    "transform-es3-property-literals",
+                    "transform-es3-member-expression-literals",
+                    "transform-es2015-classes",
+                    "transform-proto-to-assign"
+                ]
+            },
+            // loaders: ['ng-annotate', 'babel?presets[]=es2015,presets[]=stage-0,plugins[]=transform-es3-property-literals,plugins[]=transform-es3-member-expression-literals']
+            // loader: combineLoaders([
+            //     {
+            //         loader: 'ng-annotate!babel',
+            //         query: {
+            //             "presets": ["es2015", "stage-0"],
+            //             "plugins": [
+            //                 "transform-es3-property-literals",
+            //                 "transform-es3-member-expression-literals",
+            //                 "transform-es2015-classes",
+            //                 "transform-proto-to-assign"
+            //             ]
+            //         },
+            //     }
+            // ])
         }, {
             test: /\.html$/,
             exclude: /index.html/,
@@ -26,6 +53,7 @@ export default {
         noParse: []
     },
     plugins: [
+        new es3ifyPlugin(),
         /**
          * 将webpack打包后的js插入html中
          */
@@ -40,7 +68,7 @@ export default {
          */
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks: function(module, count) {
+            minChunks: function (module, count) {
                 return module.resource && module.resource.indexOf(srcPath) === -1;
             }
         }),
@@ -48,9 +76,9 @@ export default {
         /**
          *
          */
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            "window.jQuery": "jquery"
-        })
+        // new webpack.ProvidePlugin({
+        //     $: "jquery",
+        //     "window.jQuery": "jquery"
+        // })
     ]
 };
