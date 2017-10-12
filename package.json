@@ -9,14 +9,13 @@
     "develop": "webpack-dev-server --colors --inline --hot --open"
   },
   "dependencies": {
-    "angular": "1.4.8",
-    "angular-route": "^1.5.8",
-    "angular-sanitize": "^1.5.8",
+    "angular": "1.2.30",
+    "angular-route": "^1.2.30",
+    "angular-sanitize": "1.5.8",
     "classnames": "^2.2.5",
-    "jquery": "^3.1.1",
+    "jquery": "^2.1.4",
     "lao-utils": "^0.1.7",
-    "object-assign": "^4.1.0",
-    "textangular": "^1.5.13"
+    "object-assign": "^4.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
