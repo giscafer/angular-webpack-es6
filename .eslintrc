@@ -1,0 +1,22 @@
+{
+    "env": {
+      "browser": true
+    },
+    "globals": {
+      "angular": true
+    },
+    "rules": {
+      "no-alert": 0,//禁止使用alert confirm prompt
+      "no-console": 2,//禁止使用console
+      "camelcase": 2,//强制驼峰法命名
+      "curly": 2,//必须使用 if(){} 中的{}
+      "default-case": 2,//switch语句最后必须有default
+      // "quotes": [2, "single"],
+      "semi": [2, "always"],//语句强制分号结尾
+      "no-dupe-keys": 2,//在创建对象字面量时不允许键重复 {a:1,a:1}
+      "no-dupe-args": 2,//函数参数不能重复
+      "no-redeclare": 2,//禁止重复声明变量
+      "no-var": 0,//禁用var，用let和const代替
+      "no-eval": 1//禁止使用eval
+    }
+  }
