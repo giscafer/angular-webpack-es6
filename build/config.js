@@ -17,7 +17,7 @@ export default {
      */
     webpack: {
         entry: [
-            'babel-polyfill', path.join(basePath, 'src/entry.js'),
+            'babel-polyfill', path.join(basePath, 'src/main.js'),
         ]
     }
 };

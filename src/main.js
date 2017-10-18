@@ -1,5 +1,6 @@
 /**
- * Created by Giscafer
+ * Created by giscafer
+ * @Date 2017-10-17 17:00:16
  */
 import './styles/index.less';
 import angular from 'angular';
